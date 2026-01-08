@@ -1,89 +1,227 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boutique Antique</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier de Casamentos | Boutique Antique</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --champagne: #f7f3ee;
+            --perola: #faf8f5;
+            --rosa-suave: #e8cfd3;
+            --dourado-suave: #d6bfa6;
+            --texto: #4a4a4a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--perola);
+            color: var(--texto);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        /* Header refinado */
+        header {
+            background-color: rgba(250,248,245,0.95);
+            border-bottom: 1px solid #eee;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            color: var(--dourado-suave);
+        }
+
+        nav a {
+            margin-left: 28px;
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--texto);
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: var(--dourado-suave);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            padding: 120px 8% 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+              linear-gradient(rgba(250,248,245,0.85), rgba(250,248,245,0.85)),
+              url('https://images.unsplash.com/photo-1529634892243-10e6c9a4efaa?q=80&w=1600') center/cover;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            color: var(--dourado-suave);
+            margin-bottom: 25px;
+        }
+
+        .hero-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 480px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 42px;
+            border: 1px solid var(--dourado-suave);
+            color: var(--texto);
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 0.75rem;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--dourado-suave);
+            color: white;
+        }
+
+        .hero-img {
+            height: 520px;
+            background: url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200') center/cover;
+            box-shadow: 30px 30px 0 var(--rosa-suave);
+        }
+
+        /* Seções */
+        .section {
+            padding: 120px 8%;
+            text-align: center;
+        }
+
+        .section h2 {
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            color: var(--dourado-suave);
+        }
+
+        .section p {
+            max-width: 680px;
+            margin: auto;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Galeria */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .gallery div {
+            height: 360px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .gallery div::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.25), transparent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--champagne);
+            padding: 70px 8%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        footer p {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        @media(max-width: 900px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-img { height: 360px; box-shadow: none; margin-top: 40px; }
+        }
+    </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="container nav">
-    <h1 class="logo">Boutique Antique</h1>
-    <ul class="menu">
-      <li><a href="#inicio">Início</a></li>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#colecao">Coleção</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </div>
+<header>
+    <div class="logo">ATELIER DE CASAMENTOS</div>
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Sobre</a>
+        <a href="#">Casamentos</a>
+      
+    </nav>
 </header>
 
-<section class="hero" id="inicio">
-  <div class="hero-content">
-    <h2>Elegância atemporal</h2>
-    <p>Moda feminina com delicadeza, estilo e personalidade.</p>
-    <a href="#colecao" class="btn">Explorar coleção</a>
-  </div>
-</section>
-
-<section class="section" id="sobre">
-  <div class="container narrow">
-    <h2>Sobre a Boutique</h2>
-    <p>
-      A Boutique Antique foi criada para mulheres que valorizam detalhes,
-      tons suaves e peças que atravessam tendências. Cada coleção reflete
-      um cuidado especial com o design, o conforto e a feminilidade.
-    </p>
-  </div>
-</section>
-
-<section class="section soft" id="colecao">
-  <div class="container">
-    <h2>Nossa Coleção</h2>
-
-    <div class="grid">
-      <article class="card">
-        <img src="vestido.jpeg" alt="Vestidos">
-        <h3>Vestidos</h3>
-        <span>Leves e sofisticados</span>
-      </article>
-
-      <article class="card">
-        <img src="conjunto.jpeg" alt="Conjuntos">
-        <h3>Conjuntos</h3>
-        <span>Modernos e elegantes</span>
-      </article>
-
-      <article class="card">
-        <img src="blusa.jpeg" alt="Blusas">
-        <h3>Blusas</h3>
-        <span>Delicadas e versáteis</span>
-      </article>
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-text">
+            <h1>Casamentos Atemporais</h1>
+            <p>Criamos celebrações elegantes, delicadas e personalizadas. Cada detalhe é pensado para refletir a essência do casal com sofisticação e harmonia.</p>
+            <a href="#" class="btn">Conheça Nosso Trabalho</a>
+        </div>
+        <div class="hero-img"></div>
     </div>
-  </div>
 </section>
 
-<section class="section contato" id="contato">
-  <div class="container narrow">
-    <h2>Entre em contato</h2>
-    <p>Fique por dentro das novidades e lançamentos exclusivos.</p>
-    <a href="https://wa.me/5500000000000" target="_blank" class="btn btn-rosa">
-      Falar no WhatsApp
-    </a>
-  </div>
+<section class="section">
+    <h2>Nossa Essência</h2>
+    <p>Somos um atelier especializado em casamentos refinados. Unimos estética, sensibilidade e planejamento para criar ambientes memoráveis, pensamos em cada momento, planejamos tudo para que seja o dia mais inesquecivel da vida dos noivos!    Somos especializados em casamentos em praias e campos, a escolha perfeita para realizar seu sonho!   </p>
 </section>
 
-<footer class="footer">
-  <p>© 2026 Boutique Antique · Todos os direitos reservados</p>
+<section class="section">
+    <h2>Casamentos Realizados</h2>
+    <div class="gallery">
+        <div style="background-image:url('https://images.unsplash.com/photo-1529634892243-10e6c9a4efaa?q=80&w=1200')"></div>
+        <div style="background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200')"></div>
+        <div style="background-image:url('https://images.unsplash.com/photo-1522156373667-4c7234bbd804?q=80&w=1200')"></div>
+    </div>
+</section>
+
+<footer>
+    <div class="logo">BOUTIQUE ANTIQUE</div>
+    <p>© 2026 · Casamentos Elegantes · Estilo Atemporal</p>
 </footer>
 
 </body>
 </html>
-

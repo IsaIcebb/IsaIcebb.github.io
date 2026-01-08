@@ -16,18 +16,35 @@
             --texto: #4a4a4a;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: var(--perola);
+        }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--perola);
             color: var(--texto);
+            overflow-x: hidden;
         }
 
         h1, h2, h3 {
             font-family: 'Cinzel', serif;
             font-weight: 400;
             letter-spacing: 2px;
+        }
+
+        /* ===== WRAPPER FIXO ===== */
+        .site-wrapper {
+            width: 1200px;
+            margin: 0 auto;
+            transform-origin: top center;
         }
 
         header {
@@ -38,7 +55,7 @@
             justify-content: space-between;
             align-items: center;
             position: fixed;
-            width: 100%;
+            width: 1200px;
             top: 0;
             z-index: 1000;
         }
@@ -146,7 +163,6 @@
             object-fit: cover;
             border-radius: 32px;
             border: 1px solid #eee;
-            display: block;
         }
 
         footer {
@@ -164,22 +180,17 @@
             letter-spacing: 1px;
         }
 
-        @media (max-width: 900px) {
-            body {
-                min-width: 1200px;
-                overflow-x: auto;
-            }
-
-            header,
-            .hero,
-            .section,
-            footer {
-                width: 1200px;
+        /* ===== ESCALA NO CELULAR ===== */
+        @media (max-width: 1200px) {
+            .site-wrapper {
+                transform: scale(calc(100vw / 1200));
             }
         }
     </style>
 </head>
+
 <body>
+<div class="site-wrapper">
 
 <header>
     <div class="logo">ATELIER DE CASAMENTOS</div>
@@ -203,22 +214,12 @@
 
 <section class="section">
     <h2>Nossa Essência</h2>
-    <p>No <strong>Atelier de Casamentos Boutique Antique</strong>, acreditamos que o amor merece ser celebrado com tempo, cuidado e sensibilidade.<br><br>
-
-Cada história que chega até nós é única, e é a partir dessa singularidade que construímos projetos personalizados, pensados para refletir a essência, os sonhos e a identidade de cada casal. Não seguimos fórmulas prontas — criamos experiências que nascem do sentimento e se transformam em cenários memoráveis.<br><br>
-
-Nossa estética é marcada pela suavidade. Tons claros, composições delicadas, texturas naturais e elementos cuidadosamente escolhidos fazem parte da nossa linguagem visual. Laços perolados, tecidos fluidos, flores em perfeita harmonia e ambientes acolhedores são pensados para transmitir leveza, elegância e emoção.<br><br>
-
-Acreditamos que o verdadeiro luxo está nos detalhes silenciosos: na escolha da paleta, no equilíbrio das formas, na forma como a luz toca cada espaço. Cada ambiente é desenhado para acolher, emocionar e criar uma atmosfera atemporal, onde tudo faz sentido e nada é excessivo.<br><br>
-
-Mais do que decorar ou planejar, nós contamos histórias. Cada projeto é desenvolvido com sensibilidade e atenção, respeitando o ritmo dos noivos e valorizando aquilo que torna a celebração única. Caminhamos lado a lado em cada etapa, oferecendo segurança, tranquilidade e um olhar atento a cada detalhe.<br><br>
-
-Somos especializados em casamentos ao ar livre, em praias, campos e espaços que dialogam com a natureza. Acreditamos na beleza do natural, na elegância do simples e na força dos ambientes que respiram liberdade, luz e autenticidade.<br><br>
-
-Nosso processo é conduzido com carinho e comprometimento. Desde o primeiro contato até o último instante da celebração, cuidamos de cada escolha para que o grande dia seja vivido com leveza, emoção e presença, permitindo que os noivos se concentrem apenas no que realmente importa: viver o amor.<br><br>
-
-No Atelier de Casamentos Boutique Antique, transformamos sonhos em experiências reais, criando celebrações que permanecem na memória, no coração e na história de todos que as vivenciam. Cada detalhe é pensado para eternizar momentos e traduzir sentimentos que merecem durar para sempre.
-</p>
+    <p>
+        No <strong>Atelier de Casamentos Boutique Antique</strong>, acreditamos que o amor merece ser celebrado com tempo, cuidado e sensibilidade.<br><br>
+        Cada história que chega até nós é única, e é a partir dessa singularidade que criamos projetos personalizados, pensados para refletir a essência, os sonhos e a identidade de cada casal.<br><br>
+        Nossa estética é marcada pela suavidade, por tons claros, composições delicadas e ambientes que transmitem leveza, elegância e emoção.<br><br>
+        Transformamos sonhos em experiências reais, criando celebrações que permanecem na memória e no coração.
+    </p>
 </section>
 
 <section class="section">
@@ -236,5 +237,6 @@ No Atelier de Casamentos Boutique Antique, transformamos sonhos em experiências
     <p>© 2026 · Casamentos Elegantes · Estilo Atemporal</p>
 </footer>
 
+</div>
 </body>
 </html>

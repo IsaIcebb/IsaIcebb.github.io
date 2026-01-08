@@ -6,187 +6,158 @@
     <title>Atelier de Casamentos | Boutique Antique</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --champagne: #f7f3ee;
+        --perola: #faf8f5;
+        --rosa-suave: #e8cfd3;
+        --dourado-suave: #d6bfa6;
+        --texto: #4a4a4a;
+    }
 
-    <style>
-        :root {
-            --champagne: #f7f3ee;
-            --perola: #faf8f5;
-            --rosa-suave: #e8cfd3;
-            --dourado-suave: #d6bfa6;
-            --texto: #4a4a4a;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    body {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--texto);
+        background: var(--perola);
+        line-height: 1.6;
+    }
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            background: var(--perola);
-        }
+    h1, h2, h3 {
+        font-family: 'Cinzel', serif;
+        font-weight: 400;
+        letter-spacing: 2px;
+    }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--texto);
-            overflow-x: hidden;
-        }
+    /* ===== REMOVIDO O WRAPPER FIXO DE 1200PX ===== */
+    .site-wrapper {
+        width: 100%;
+        max-width: 1200px; /* Limita a largura no PC */
+        margin: 0 auto;
+    }
 
-        h1, h2, h3 {
-            font-family: 'Cinzel', serif;
-            font-weight: 400;
-            letter-spacing: 2px;
-        }
+    header {
+        background-color: rgba(250,248,245,0.95);
+        border-bottom: 1px solid #eee;
+        padding: 20px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%; /* Ocupa a tela toda */
+        max-width: 1200px; /* Alinha com o wrapper */
+        top: 0;
+        z-index: 1000;
+    }
 
-        /* ===== WRAPPER FIXO ===== */
-        .site-wrapper {
-            width: 1200px;
-            margin: 0 auto;
-            transform-origin: top center;
-        }
+    .logo {
+        font-size: 1.1rem;
+        color: var(--dourado-suave);
+    }
 
+    nav a {
+        margin-left: 15px;
+        text-decoration: none;
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        color: var(--texto);
+        text-transform: uppercase;
+    }
+
+    .hero {
+        min-height: 100vh;
+        padding: 140px 5% 60px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(rgba(250,248,245,0.85), rgba(250,248,245,0.85)),
+                    url('hero.jpeg') center/cover;
+    }
+
+    .hero-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(2rem, 5vw, 3.2rem); /* Tamanho de fonte fluido */
+        color: var(--dourado-suave);
+        margin-bottom: 25px;
+    }
+
+    .hero-img {
+        height: 450px;
+        background: url('casa.jpg') center/cover;
+        box-shadow: 20px 20px 0 var(--rosa-suave);
+    }
+
+    .section {
+        padding: 80px 5%;
+        text-align: center;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+
+    footer {
+        background: var(--champagne);
+        padding: 40px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    /* ===== AJUSTES PARA CELULAR (MEDIA QUERIES) ===== */
+    @media (max-width: 768px) {
         header {
-            background-color: rgba(250,248,245,0.95);
-            border-bottom: 1px solid #eee;
-            padding: 22px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 1200px;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 1.3rem;
-            color: var(--dourado-suave);
+            flex-direction: column;
+            gap: 15px;
+            padding: 15px;
         }
 
         nav a {
-            margin-left: 28px;
-            text-decoration: none;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            color: var(--texto);
-            text-transform: uppercase;
-        }
-
-        nav a:hover {
-            color: var(--dourado-suave);
-        }
-
-        .hero {
-            min-height: 100vh;
-            padding: 120px 8% 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background:
-              linear-gradient(rgba(250,248,245,0.85), rgba(250,248,245,0.85)),
-              url('hero.jpeg') center/cover;
+            margin: 0 10px;
         }
 
         .hero-container {
-            max-width: 1200px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: 3.2rem;
-            color: var(--dourado-suave);
-            margin-bottom: 25px;
-        }
-
-        .hero-text p {
-            font-size: 1rem;
-            line-height: 1.8;
-            max-width: 480px;
-            margin-bottom: 40px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 42px;
-            border: 1px solid var(--dourado-suave);
-            color: var(--texto);
-            text-decoration: none;
-            letter-spacing: 2px;
-            font-size: 0.75rem;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: var(--dourado-suave);
-            color: white;
-        }
-
-        .hero-img {
-            height: 520px;
-            background: url('casa.jpg') center/cover;
-            box-shadow: 30px 30px 0 var(--rosa-suave);
-        }
-
-        .section {
-            padding: 120px 8%;
+            grid-template-columns: 1fr; /* Transforma as 2 colunas em 1 */
             text-align: center;
         }
 
-        .section h2 {
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-            color: var(--dourado-suave);
+        .hero-text p {
+            margin: 0 auto 30px;
         }
 
-        .section p {
-            max-width: 680px;
-            margin: auto;
-            font-size: 0.95rem;
-            line-height: 1.8;
+        .hero-img {
+            height: 300px;
+            order: -1; /* Coloca a imagem acima do texto no celular */
+            box-shadow: 15px 15px 0 var(--rosa-suave);
         }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
+        .section {
+            padding: 60px 20px;
         }
-
-        .gallery img {
-            width: 100%;
-            height: 360px;
-            object-fit: cover;
-            border-radius: 32px;
-            border: 1px solid #eee;
-        }
-
-        footer {
-            background: var(--champagne);
-            padding: 70px 8%;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-            border-top: 1px solid #eee;
-        }
-
-        footer p {
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-        }
-
-        /* ===== ESCALA NO CELULAR ===== */
-        @media (max-width: 1200px) {
-            .site-wrapper {
-                transform: scale(calc(100vw / 1200));
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
